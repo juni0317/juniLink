@@ -186,6 +186,36 @@
             font-size:16px;
         }
 
+        /* === ABOUT / CHANNEL SUMMARY === */
+        .about-wrap{
+            margin:4px 0 18px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+        }
+
+        .about-pill{
+            flex:1 1 150px;
+            min-width:0;
+            padding:8px 10px;
+            border-radius:14px;
+            background: radial-gradient(circle at top left, rgba(255,107,75,0.14), rgba(9,11,25,0.95));
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .about-label{
+            font-size:10px;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            color:rgba(255,255,255,0.55);
+            margin-bottom:3px;
+        }
+
+        .about-value{
+            font-size:12px;
+            color:var(--text-main);
+        }
+
         .ferrari-wrap{
             margin-top:8px;
             padding:10px;
@@ -207,7 +237,6 @@
             display:block;
             border-radius:16px;
             background:black;
-            /* CSS aspect ratio 힌트 (JS에서 실제 사이즈를 맞춰줌) */
             aspect-ratio: 16 / 9;
         }
 
@@ -244,14 +273,13 @@
     <!-- 프로필 헤더 -->
     <header class="profile-header">
         <div class="avatar-wrap">
-            <!-- 네 사진 파일명으로 바꾸면 됨 -->
             <img src="profile.jpg" class="avatar-img" alt="profile">
         </div>
         <div class="profile-text">
             <div class="name">정혁준</div>
             <p class="tagline">
                 협찬 및 광고 문의는 DM이나 메일 부탁드립니다.<br>
-                junjunijun79@gmail.com
+                junjunjun79@gmail.com
             </p>
         </div>
     </header>
@@ -264,7 +292,6 @@
         <a class="link-item" href="https://www.instagram.com/hyeok_junnn" target="_blank" rel="noreferrer">
             <div class="link-left">
                 <div class="icon-chip">
-                    <!-- Instagram SVG -->
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.8-8.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/>
                     </svg>
@@ -281,7 +308,6 @@
         <a class="link-item" href="https://www.youtube.com/@Hyeok_junnn" target="_blank" rel="noreferrer">
             <div class="link-left">
                 <div class="icon-chip">
-                    <!-- YouTube SVG -->
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.7 3.9 12 3.9 12 3.9h-.1s-3.7 0-6.9.3c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 8.8 2 10.4v1.2c0 1.6.2 3.2.2 3.2s.2 1.5.8 2.1c.7.8 1.7.7 2.1.8 1.6.2 6.9.3 6.9.3s3.7 0 6.9-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.6.2-3.2v-1.2c.1-1.5-.1-3.1-.1-3.1zM9.8 14.5v-5l5.2 2.5-5.2 2.5z"/>
                     </svg>
@@ -298,7 +324,6 @@
         <a class="link-item" href="https://www.tiktok.com/@king_juni" target="_blank" rel="noreferrer">
             <div class="link-left">
                 <div class="icon-chip">
-                    <!-- TikTok SVG -->
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M17.2 6.2c-.8-.6-1.4-1.5-1.5-2.6h-2.4v12.3c0 1.3-1 2.4-2.3 2.4s-2.3-1.1-2.3-2.4 1-2.4 2.3-2.4c.3 0 .6.1.9.2V11c-.3-.1-.6-.1-.9-.1-2.6 0-4.7 2.2-4.7 4.9s2.1 4.9 4.7 4.9 4.7-2.2 4.7-4.9V8.6c1 .8 2.4 1.2 3.8 1.3V7.4c-.8 0-1.6-.2-2.3-.6z"/>
                     </svg>
@@ -312,6 +337,22 @@
         </a>
     </nav>
 
+    <!-- ABOUT / CHANNEL SUMMARY -->
+    <div class="about-wrap">
+        <div class="about-pill">
+            <div class="about-label">MAIN CONTENT</div>
+            <div class="about-value">ASMR 먹방, 디저트 리뷰</div>
+        </div>
+        <div class="about-pill">
+            <div class="about-label">UPLOAD</div>
+            <div class="about-value">거의 매일</div>
+        </div>
+        <div class="about-pill">
+            <div class="about-label">FEEDBACK</div>
+            <div class="about-value">피드백 적극 수용</div>
+        </div>
+    </div>
+
     <!-- Ferrari 3D 섹션 -->
     <section class="ferrari-wrap">
         <div class="ferrari-header">
@@ -320,6 +361,7 @@
         </div>
         <canvas id="canvas"></canvas>
     </section>
+    <br>
 </div>
 
 <!-- three.js -->
@@ -357,41 +399,33 @@
 
     const loader = new GLTFLoader();
     loader.load(
-    'ferrari488/scene.gltf',
-    (gltf) => {
-        ferrari = gltf.scene;
-        scene.add(ferrari);
+        'ferrari488/scene.gltf',
+        (gltf) => {
+            ferrari = gltf.scene;
+            scene.add(ferrari);
 
-        // --- 모델 중심·크기 계산 ---
-        const box = new THREE.Box3().setFromObject(ferrari);
-        const size   = box.getSize(new THREE.Vector3()).length();
-        const center = box.getCenter(new THREE.Vector3());
+            const box = new THREE.Box3().setFromObject(ferrari);
+            const size   = box.getSize(new THREE.Vector3()).length();
+            const center = box.getCenter(new THREE.Vector3());
 
-        // 모델을 원점으로 이동
-        ferrari.position.sub(center);
+            ferrari.position.sub(center);
 
-        // --- 카메라를 더 "빡세게" 줌인해서 맞추기 ---
-        const fitHeightDistance = size / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
-        const fitWidthDistance  = fitHeightDistance / camera.aspect;
+            const fitHeightDistance = size / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
+            const fitWidthDistance  = fitHeightDistance / camera.aspect;
+            const framingFactor = 0.7;
+            const distance = Math.max(fitHeightDistance, fitWidthDistance) * framingFactor;
 
-        // 여기 factor를 1보다 작게 하면 더 꽉 차게 보임
-        const framingFactor = 0.7;   // 0.7 ~ 0.8 정도가 무난
-
-        const distance = Math.max(fitHeightDistance, fitWidthDistance) * framingFactor;
-
-        // 살짝 위에서 비스듬히 보도록 위치 조정
-        camera.position.set(0, distance * 0.25, distance);
-        camera.lookAt(0, 0, 0);
-        camera.updateProjectionMatrix();
-    },
-    undefined,
-    (error) => console.error('Ferrari load error ❌', error)
+            camera.position.set(0, distance * 0.25, distance);
+            camera.lookAt(0, 0, 0);
+            camera.updateProjectionMatrix();
+        },
+        undefined,
+        (error) => console.error('Ferrari load error ❌', error)
     );
 
-
     function resizeRendererToDisplaySize() {
-        const width = canvas.clientWidth;
-        const height = width * 9 / 16;  // 16:9 비율
+        const width  = canvas.clientWidth;
+        const height = width * 9 / 16;
         if (canvas.width !== width || canvas.height !== height) {
             renderer.setSize(width, height, false);
             camera.aspect = width / height;
