@@ -383,7 +383,7 @@
     <!-- Ferrari 3D 섹션 -->
     <section class="ferrari-wrap">
         <div class="ferrari-header">
-            <span>I love sashimi</span>
+            <span>I love sushi</span>
             <span>yummy</span>
         </div>
         <canvas id="canvas"></canvas>
@@ -417,7 +417,7 @@
     scene.background = new THREE.Color('black');
 
     const camera = new THREE.PerspectiveCamera(45, 16 / 9, 0.1, 2000);
-    camera.position.set(0, 80, 320);
+    camera.position.set(0, 60, 320);
 
     const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(50, 120, 150);
@@ -430,7 +430,7 @@
 
     const loader = new GLTFLoader();
     loader.load(
-        'sashimi/scene.gltf',
+        'toro_sushi/scene.gltf',
         (gltf) => {
             ferrari = gltf.scene;
             scene.add(ferrari);
@@ -468,7 +468,7 @@
         requestAnimationFrame(animate);
         resizeRendererToDisplaySize();
         if (ferrari) {
-            ferrari.rotation.y += 0.001;
+            ferrari.rotation.y += 0.005;
         }
         renderer.render(scene, camera);
     }
