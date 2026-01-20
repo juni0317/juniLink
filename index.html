@@ -345,6 +345,23 @@
             </div>
             <div class="link-arrow">›</div>
         </a>
+
+        <!-- Discord -->
+        <a class="link-item" href="https://discord.gg/6xsKgDhAX3" target="_blank" rel="noreferrer">
+            <div class="link-left">
+                <div class="icon-chip">
+                    <!-- Discord SVG -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.3 4.5a19.9 19.9 0 0 0-4.9-1.5l-.2.4a18 18 0 0 1 4.3 1.6 18.4 18.4 0 0 0-7.5-1.8 18.4 18.4 0 0 0-7.5 1.8 18 18 0 0 1 4.3-1.6l-.2-.4a19.9 19.9 0 0 0-4.9 1.5C1.5 8.1.8 11.6 1 15c2.2 3.2 5.4 4.1 5.4 4.1l1.2-1.6a11.4 11.4 0 0 1-3.4-1.7c.3.2.7.4 1.1.6a13.3 13.3 0 0 0 6.7 1.7 13.3 13.3 0 0 0 6.7-1.7c.4-.2.8-.4 1.1-.6a11.4 11.4 0 0 1-3.4 1.7l1.2 1.6s3.2-.9 5.4-4.1c.3-3.4-.5-6.9-2.7-10.5zM9.4 14.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.2 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/>
+                    </svg>
+                </div>
+                <div class="link-labels">
+                    <div class="link-main">Discord</div>
+                    <div class="link-sub">라이브 알림 · 커뮤니티</div>
+                </div>
+            </div>
+            <div class="link-arrow">›</div>
+        </a>
     </nav>
 
     <!-- ABOUT / CHANNEL SUMMARY -->
@@ -366,8 +383,8 @@
     <!-- Ferrari 3D 섹션 -->
     <section class="ferrari-wrap">
         <div class="ferrari-header">
-            <span>GARAGE</span>
-            <span>Ferrari 488</span>
+            <span>I love sashimi</span>
+            <span>yummy</span>
         </div>
         <canvas id="canvas"></canvas>
     </section>
@@ -400,7 +417,7 @@
     scene.background = new THREE.Color('black');
 
     const camera = new THREE.PerspectiveCamera(45, 16 / 9, 0.1, 2000);
-    camera.position.set(0, 60, 320);
+    camera.position.set(0, 80, 320);
 
     const dirLight = new THREE.DirectionalLight(0xffffff, 2);
     dirLight.position.set(50, 120, 150);
@@ -413,7 +430,7 @@
 
     const loader = new GLTFLoader();
     loader.load(
-        'ferrari488/scene.gltf',
+        'sashimi/scene.gltf',
         (gltf) => {
             ferrari = gltf.scene;
             scene.add(ferrari);
@@ -451,7 +468,7 @@
         requestAnimationFrame(animate);
         resizeRendererToDisplaySize();
         if (ferrari) {
-            ferrari.rotation.y += 0.007;
+            ferrari.rotation.y += 0.001;
         }
         renderer.render(scene, camera);
     }

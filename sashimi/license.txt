@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sashimi
+* source:	https://sketchfab.com/3d-models/sashimi-8e64c9d0955f400d8563ab59cd603198
+* author:	yoshimura.manufacturing (https://sketchfab.com/yoshimura.manufacturing)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sashimi" (https://sketchfab.com/3d-models/sashimi-8e64c9d0955f400d8563ab59cd603198) by yoshimura.manufacturing (https://sketchfab.com/yoshimura.manufacturing) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
