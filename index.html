@@ -4,537 +4,1590 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juni Link Profile</title>
+
+    <title>JUNI — AVANT MUKBANG</title>
+
     <style>
-        :root {
-            --bg-main: #050712;
-            --bg-card: #111320;
-            --bg-chip: #181a29;
-            --accent: #ff6b4b;
-            --accent-soft: rgba(255, 107, 75, 0.18);
-            --text-main: #f5f5f7;
-            --text-sub: #9da0b8;
-            --border-soft: rgba(255,255,255,0.08);
-            --radius-lg: 18px;
-            --shadow-soft: 0 18px 45px rgba(0,0,0,0.6);
+        :root{
+            --black:#050505;
+            --black2:#0b0b0b;
+            --panel:#101010;
+
+            --white:#f4f4ef;
+            --muted:#8b8b85;
+
+            --acid:#dfff00;
+            --pink:#ff2bd6;
+            --cyan:#00eaff;
+            --orange:#ff5a36;
+
+            --border:rgba(255,255,255,.15);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
 
         body{
-            min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #2a253d 0, #050712 55%, #020308 100%);
-            color: var(--text-main);
-            padding: 24px 16px;
-            display:flex;
-            justify-content:center;
-            align-items:flex-start;
+            min-height:100vh;
+            color:var(--white);
+            background:
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                var(--black);
+
+            background-size:32px 32px;
+
+            font-family:
+                Arial,
+                "Apple SD Gothic Neo",
+                "Noto Sans KR",
+                sans-serif;
+
+            padding:34px 18px 50px;
         }
+
+        a{
+            color:inherit;
+        }
+
+        /* ===============================
+           MAIN
+        ================================ */
 
         .page{
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto;
-            background: radial-gradient(circle at top, #20253c 0, #0a0c16 45%, #050712 100%);
-            border-radius: 24px;
-            padding: 20px 18px 18px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-soft);
             position:relative;
+
+            width:100%;
+            max-width:920px;
+
+            margin:0 auto;
+
+            border:1px solid var(--border);
+            background:rgba(5,5,5,.94);
+
+            box-shadow:
+                14px 14px 0 var(--acid),
+                28px 28px 0 rgba(255,43,214,.18);
+
+            overflow:hidden;
         }
 
-        .status-dot{
+        .page::before{
+            content:"EAT";
             position:absolute;
-            top:14px;
-            right:16px;
-            width:9px;
-            height:9px;
-            border-radius:50%;
-            background: var(--accent);
-            box-shadow:0 0 10px var(--accent);
+
+            right:-20px;
+            top:-55px;
+
+            font-size:180px;
+            line-height:1;
+
+            font-family:
+                Impact,
+                "Arial Black",
+                sans-serif;
+
+            color:transparent;
+            -webkit-text-stroke:1px rgba(223,255,0,.15);
+
+            pointer-events:none;
+            user-select:none;
         }
 
-        .profile-header{
-            display:flex;
-            gap:16px;
-            align-items:center;
-            flex-wrap:wrap;
-            margin-bottom:20px;
-        }
+        /* ===============================
+           TOP BAR
+        ================================ */
 
-        .avatar-wrap{
-            width:86px;
-            height:86px;
-            border-radius:50%;
-            padding:3px;
-            background: conic-gradient(from 210deg, #ff6b4b, #ffd571, #ff6bd8, #ff6b4b);
-            flex-shrink:0;
-        }
-
-        .avatar-img{
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .profile-text{
-            flex:1 1 200px;
-            min-width: 0;
-        }
-
-        .name{
-            font-size:24px;
-            font-weight:700;
-            margin-bottom:4px;
-        }
-
-        .tagline{
-            font-size:13px;
-            color: var(--text-sub);
-            line-height:1.5;
-        }
-
-        .section-title{
-            margin:10px 2px 10px;
-            font-size:12px;
-            letter-spacing:0.18em;
-            color: var(--text-sub);
-            text-transform:uppercase;
-        }
-
-        .section-title strong{
-            color: var(--accent);
-        }
-
-        .link-list{
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-            margin-bottom:16px;
-        }
-
-        .link-item{
+        .top-bar{
             display:flex;
             align-items:center;
             justify-content:space-between;
-            padding:11px 13px;
-            border-radius: var(--radius-lg);
-            background: rgba(12,14,26,0.95);
-            border: 1px solid var(--border-soft);
-            color: var(--text-main);
+
+            padding:10px 16px;
+
+            border-bottom:1px solid var(--border);
+
+            font-family:monospace;
+            font-size:10px;
+            letter-spacing:.12em;
+        }
+
+        .top-badge{
+            color:var(--acid);
+        }
+
+        .top-status{
+            display:flex;
+            align-items:center;
+            gap:7px;
+        }
+
+        .status-dot{
+            width:7px;
+            height:7px;
+
+            background:var(--pink);
+            box-shadow:0 0 14px var(--pink);
+        }
+
+        /* ===============================
+           PROFILE
+        ================================ */
+
+        .profile-header{
+            position:relative;
+
+            display:grid;
+            grid-template-columns:150px 1fr;
+            gap:30px;
+
+            align-items:center;
+
+            padding:38px 32px 36px;
+
+            border-bottom:1px solid var(--border);
+        }
+
+        .avatar-wrap{
+            position:relative;
+
+            width:140px;
+            height:140px;
+
+            background:var(--acid);
+
+            clip-path:polygon(
+                0 0,
+                88% 0,
+                100% 12%,
+                100% 100%,
+                12% 100%,
+                0 88%
+            );
+        }
+
+        .avatar-wrap::after{
+            content:"JUNI";
+            position:absolute;
+
+            right:-15px;
+            bottom:12px;
+
+            padding:4px 8px;
+
+            background:var(--pink);
+            color:#000;
+
+            font-family:monospace;
+            font-weight:900;
+            font-size:10px;
+
+            transform:rotate(-7deg);
+        }
+
+        .avatar-img{
+            width:100%;
+            height:100%;
+
+            object-fit:cover;
+
+            padding:5px;
+
+            clip-path:inherit;
+        }
+
+        .profile-text{
+            position:relative;
+            z-index:2;
+        }
+
+        .eyebrow{
+            margin-bottom:9px;
+
+            color:var(--cyan);
+
+            font-size:11px;
+            font-family:monospace;
+            letter-spacing:.17em;
+        }
+
+        .name{
+            font-family:
+                Impact,
+                "Arial Black",
+                sans-serif;
+
+            font-size:clamp(44px,9vw,88px);
+            line-height:.88;
+            letter-spacing:-.025em;
+
+            text-transform:uppercase;
+
+            margin-bottom:18px;
+        }
+
+        .name span{
+            color:var(--acid);
+        }
+
+        .tagline{
+            max-width:560px;
+
+            color:#bbb;
+
+            font-size:13px;
+            line-height:1.7;
+        }
+
+        .tagline strong{
+            color:var(--white);
+            font-weight:600;
+        }
+
+        /* ===============================
+           COMMON SECTION
+        ================================ */
+
+        .content{
+            padding:30px 32px 36px;
+        }
+
+        .section-heading{
+            position:relative;
+
+            display:flex;
+            align-items:flex-end;
+            justify-content:space-between;
+
+            margin:8px 0 16px;
+        }
+
+        .section-index{
+            color:var(--pink);
+
+            font-family:monospace;
+            font-size:11px;
+        }
+
+        .section-title{
+            font-family:
+                Impact,
+                "Arial Black",
+                sans-serif;
+
+            font-size:34px;
+            letter-spacing:.01em;
+
+            text-transform:uppercase;
+        }
+
+        .section-title span{
+            color:var(--acid);
+        }
+
+        .section-line{
+            height:1px;
+            flex:1;
+
+            margin:0 15px 7px;
+
+            background:linear-gradient(
+                90deg,
+                rgba(255,255,255,.25),
+                transparent
+            );
+        }
+
+        /* ===============================
+           SOCIAL
+        ================================ */
+
+        .social-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:10px;
+
+            margin-bottom:34px;
+        }
+
+        .link-item{
+            position:relative;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            min-height:78px;
+
+            padding:14px 15px;
+
+            border:1px solid var(--border);
+            background:var(--panel);
+
             text-decoration:none;
-            transition:0.13s ease-out;
+
+            overflow:hidden;
+
+            transition:
+                transform .18s ease,
+                background .18s ease,
+                border-color .18s ease;
+        }
+
+        .link-item::before{
+            content:"";
+
+            position:absolute;
+            left:0;
+            top:0;
+
+            width:5px;
+            height:100%;
+
+            background:var(--acid);
+
+            transform:scaleY(0);
+            transform-origin:bottom;
+
+            transition:transform .18s ease;
+        }
+
+        .link-item:nth-child(2)::before{
+            background:var(--pink);
+        }
+
+        .link-item:nth-child(3)::before{
+            background:var(--cyan);
+        }
+
+        .link-item:nth-child(4)::before{
+            background:#5865f2;
         }
 
         .link-item:hover{
-            transform: translateY(-2px);
-            background: radial-gradient(circle at top left, var(--accent-soft), #070814);
-            border-color: rgba(255,255,255,0.18);
-            box-shadow:0 10px 24px rgba(0,0,0,0.65);
+            transform:translate(-5px,-5px);
+
+            border-color:white;
+            background:#171717;
+
+            box-shadow:
+                5px 5px 0 var(--acid);
+        }
+
+        .link-item:hover::before{
+            transform:scaleY(1);
         }
 
         .link-left{
             display:flex;
             align-items:center;
-            gap:12px;
+            gap:13px;
+
             min-width:0;
         }
 
         .icon-chip{
-            width:34px;
-            height:34px;
-            background: var(--bg-chip);
-            border-radius:999px;
-            display:flex;
-            justify-content:center;
-            align-items:center;
+            width:42px;
+            height:42px;
+
             flex-shrink:0;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border:1px solid rgba(255,255,255,.2);
+            background:#000;
         }
 
         .icon-chip svg{
-            width:20px;
-            height:20px;
+            width:21px;
+            height:21px;
+
             fill:white;
         }
 
-        .icon-image{
-            width:34px;
-            height:34px;
-            border-radius:10px;      /* 살짝 둥글게 */
-            object-fit:cover;
-            display:block;
-        }
-
-
         .link-labels{
-            display:flex;
-            flex-direction:column;
-            gap:2px;
             min-width:0;
         }
 
         .link-main{
-            font-size:13px;
-            font-weight:600;
-            white-space:nowrap;
+            margin-bottom:4px;
+
+            font-size:14px;
+            font-weight:800;
+
+            text-transform:uppercase;
         }
 
         .link-sub{
+            color:var(--muted);
+
             font-size:11px;
-            color:var(--text-sub);
+
             white-space:nowrap;
             overflow:hidden;
             text-overflow:ellipsis;
         }
 
         .link-arrow{
-            opacity:0.6;
-            font-size:16px;
+            color:var(--acid);
+
+            font-family:monospace;
+            font-size:19px;
+        }
+
+        /* ===============================
+           PRODUCT DROP
+        ================================ */
+
+        .products{
+            display:grid;
+            gap:10px;
+
+            margin-bottom:12px;
+        }
+
+        .product-card{
+            position:relative;
+
+            display:grid;
+            grid-template-columns:86px 1fr 40px;
+            gap:14px;
+
+            align-items:center;
+
+            min-height:100px;
+
+            padding:10px;
+
+            border:1px solid var(--border);
+            background:#0b0b0b;
+
+            color:inherit;
+            text-decoration:none;
+
+            transition:
+                transform .18s ease,
+                border-color .18s ease;
+        }
+
+        .product-card:nth-child(odd){
+            margin-right:28px;
+        }
+
+        .product-card:nth-child(even){
+            margin-left:28px;
+        }
+
+        .product-card:hover{
+            transform:skewX(-1deg) translateY(-4px);
+            border-color:var(--acid);
+        }
+
+        .product-image-wrap{
+            position:relative;
+
+            width:86px;
+            height:80px;
+
+            background:#151515;
+
+            overflow:hidden;
+        }
+
+        .product-image{
+            width:100%;
+            height:100%;
+
+            object-fit:cover;
+
+            transition:transform .3s ease;
+        }
+
+        .product-card:hover .product-image{
+            transform:scale(1.08);
+        }
+
+        .product-number{
+            position:absolute;
+
+            left:5px;
+            top:5px;
+
+            padding:2px 5px;
+
+            background:var(--acid);
+            color:#000;
+
+            font-family:monospace;
+            font-size:9px;
+            font-weight:900;
+        }
+
+        .product-kicker{
+            margin-bottom:5px;
+
+            color:var(--pink);
+
+            font-family:monospace;
+            font-size:9px;
+            letter-spacing:.15em;
+        }
+
+        .product-name{
+            margin-bottom:4px;
+
+            font-size:15px;
+            font-weight:800;
+        }
+
+        .product-description{
+            color:var(--muted);
+
+            font-size:11px;
+            line-height:1.5;
+        }
+
+        .product-arrow{
+            color:var(--acid);
+
+            font-family:monospace;
+            font-size:21px;
+
+            text-align:center;
         }
 
         .disclosure{
-            margin: 6px 4px 14px;
-            font-size: 10px;
-            line-height: 1.4;
-            color: rgba(157,160,184,0.75);
+            margin:10px 2px 34px;
+
+            padding-left:11px;
+
+            border-left:2px solid var(--pink);
+
+            color:#777;
+
+            font-size:10px;
+            line-height:1.6;
         }
 
-        /* === ABOUT / CHANNEL SUMMARY === */
+        /* ===============================
+           INFO STRIP
+        ================================ */
+
         .about-wrap{
-            margin:4px 0 18px;
-            display:flex;
-            flex-wrap:wrap;
-            gap:8px;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+
+            border-top:1px solid var(--border);
+            border-left:1px solid var(--border);
+
+            margin-bottom:34px;
         }
 
         .about-pill{
-            flex:1 1 150px;
-            min-width:0;
-            padding:8px 10px;
-            border-radius:14px;
-            background: radial-gradient(circle at top left, rgba(255,107,75,0.14), rgba(9,11,25,0.95));
-            border: 1px solid rgba(255,255,255,0.06);
+            min-height:95px;
+
+            padding:15px;
+
+            border-right:1px solid var(--border);
+            border-bottom:1px solid var(--border);
+
+            background:#090909;
+        }
+
+        .about-pill:nth-child(2){
+            background:var(--acid);
+            color:#000;
         }
 
         .about-label{
-            font-size:10px;
-            letter-spacing:0.12em;
-            text-transform:uppercase;
-            color:rgba(255,255,255,0.55);
-            margin-bottom:3px;
+            margin-bottom:12px;
+
+            font-family:monospace;
+            font-size:9px;
+            letter-spacing:.12em;
+
+            opacity:.65;
         }
 
         .about-value{
-            font-size:12px;
-            color:var(--text-main);
+            font-size:13px;
+            font-weight:700;
+            line-height:1.5;
         }
 
-        .ferrari-wrap{
-            margin-top:8px;
-            padding:10px;
-            border-radius: var(--radius-lg);
-            background: radial-gradient(circle at top, #151a29 0, #050712 70%);
-            border:1px solid rgba(255,255,255,0.07);
+        /* ===============================
+           3D OBJECT
+        ================================ */
+
+        .object-section{
+            position:relative;
+
+            border:1px solid var(--border);
+            background:#000;
+
+            overflow:hidden;
         }
 
-        .ferrari-header{
+        .object-section::before{
+            content:"3D FOOD OBJECT";
+
+            position:absolute;
+            left:-17px;
+            top:92px;
+
+            z-index:4;
+
+            padding:4px 7px;
+
+            background:var(--pink);
+            color:#000;
+
+            font-family:monospace;
+            font-size:9px;
+            font-weight:900;
+
+            transform:rotate(-90deg);
+        }
+
+        .object-header{
+            position:absolute;
+
+            left:0;
+            top:0;
+
+            z-index:3;
+
+            width:100%;
+
             display:flex;
             justify-content:space-between;
-            font-size:11px;
-            color:var(--text-sub);
-            margin-bottom:4px;
+
+            padding:12px 14px;
+
+            pointer-events:none;
+
+            font-family:monospace;
+            font-size:10px;
+            letter-spacing:.12em;
+        }
+
+        .object-header span:first-child{
+            color:var(--acid);
+        }
+
+        .object-header span:last-child{
+            color:var(--cyan);
         }
 
         #canvas{
             width:100%;
             display:block;
-            border-radius:16px;
-            background:black;
-            aspect-ratio: 16 / 9;
+
+            aspect-ratio:16 / 9;
+
+            background:#000;
         }
 
-        .f-caption{
-            margin-top:5px;
-            font-size:11px;
-            color:var(--text-sub);
+        .object-bottom{
             display:flex;
             justify-content:space-between;
-            gap:8px;
-            flex-wrap:wrap;
-        }
 
-        .f-caption strong{ color: var(--accent); }
+            padding:9px 13px;
 
-        /* === FOOTER / COPYRIGHT === */
-        .footer{
-            margin-top:10px;
-            padding-top:8px;
-            border-top:1px solid rgba(255,255,255,0.05);
+            border-top:1px solid var(--border);
+
+            color:#777;
+
             font-size:10px;
-            color:rgba(157,160,184,0.7);
-            text-align:center;
+            font-family:monospace;
         }
 
-        @media (max-width: 600px){
+        .object-bottom strong{
+            color:var(--white);
+        }
+
+        /* ===============================
+           FOOTER
+        ================================ */
+
+        .footer{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:20px;
+
+            margin-top:30px;
+
+            padding-top:14px;
+
+            border-top:1px solid var(--border);
+
+            color:#666;
+
+            font-family:monospace;
+            font-size:9px;
+        }
+
+        .footer-mark{
+            color:var(--acid);
+        }
+
+        /* ===============================
+           MOBILE
+        ================================ */
+
+        @media(max-width:700px){
+
             body{
-                padding:16px 10px;
+                padding:14px 9px 40px;
             }
+
             .page{
-                padding:18px 14px 16px;
+                box-shadow:
+                    7px 7px 0 var(--acid),
+                    14px 14px 0 rgba(255,43,214,.16);
             }
+
+            .page::before{
+                font-size:100px;
+                top:-25px;
+            }
+
             .profile-header{
+                grid-template-columns:92px 1fr;
+
+                gap:15px;
+
+                padding:28px 18px 26px;
+            }
+
+            .avatar-wrap{
+                width:88px;
+                height:88px;
+            }
+
+            .avatar-wrap::after{
+                display:none;
+            }
+
+            .name{
+                font-size:42px;
+            }
+
+            .tagline{
+                font-size:11px;
+            }
+
+            .content{
+                padding:24px 17px 30px;
+            }
+
+            .section-title{
+                font-size:27px;
+            }
+
+            .social-grid{
+                grid-template-columns:1fr;
+            }
+
+            .product-card,
+            .product-card:nth-child(odd),
+            .product-card:nth-child(even){
+                margin-left:0;
+                margin-right:0;
+
+                grid-template-columns:65px 1fr 25px;
+            }
+
+            .product-image-wrap{
+                width:65px;
+                height:65px;
+            }
+
+            .about-wrap{
+                grid-template-columns:1fr;
+            }
+
+            .about-pill{
+                min-height:auto;
+            }
+
+            .object-bottom{
+                flex-direction:column;
+                gap:4px;
+            }
+
+            .footer{
+                flex-direction:column;
                 align-items:flex-start;
+                gap:5px;
             }
         }
     </style>
 </head>
+
+
 <body>
 
 <div class="page">
-    <div class="status-dot"></div>
 
-    <!-- 프로필 헤더 -->
-    <header class="profile-header">
-        <div class="avatar-wrap">
-            <img src="profile.jpg" class="avatar-img" alt="profile">
+    <!-- TOP -->
+    <div class="top-bar">
+        <div class="top-badge">
+            JUNI / AVANT-GARDE MUKBANG
         </div>
+
+        <div class="top-status">
+            ONLINE
+            <span class="status-dot"></span>
+        </div>
+    </div>
+
+
+    <!-- PROFILE -->
+    <header class="profile-header">
+
+        <div class="avatar-wrap">
+            <img
+                src="profile.jpg"
+                class="avatar-img"
+                alt="정혁준 프로필 사진"
+            >
+        </div>
+
         <div class="profile-text">
-            <div class="name">정혁준</div>
+
+            <div class="eyebrow">
+                CREATOR / FOOD / EXPERIMENT
+            </div>
+
+            <div class="name">
+                정<span>혁준</span>
+            </div>
+
             <p class="tagline">
-                다양한 먹방 보여드릴게요! <br>
+                <strong>국내 유저를 타깃으로 한 아방가르드 기획 먹방</strong><br>
+                광고 · 협업 · 콘텐츠 문의<br>
                 junjunijun79@gmail.com
             </p>
+
         </div>
+
     </header>
 
-    <!-- SNS 링크 -->
-    <div class="section-title"><strong>LINKS</strong> · SOCIAL</div>
 
-    <nav class="link-list">
-        <!-- Instagram -->
-        <a class="link-item" href="https://www.instagram.com/hyeok_junnn" target="_blank" rel="noreferrer">
-            <div class="link-left">
-                <div class="icon-chip">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.8-8.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/>
-                    </svg>
-                </div>
-                <div class="link-labels">
-                    <div class="link-main">Instagram</div>
-                    <div class="link-sub">먹방 · 일상</div>
-                </div>
-            </div>
-            <div class="link-arrow">›</div>
-        </a>
+    <main class="content">
 
-        <!-- YouTube -->
-        <a class="link-item" href="https://www.youtube.com/@Hyeok_junnn" target="_blank" rel="noreferrer">
-            <div class="link-left">
-                <div class="icon-chip">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.7 3.9 12 3.9 12 3.9h-.1s-3.7 0-6.9.3c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 8.8 2 10.4v1.2c0 1.6.2 3.2.2 3.2s.2 1.5.8 2.1c.7.8 1.7.7 2.1.8 1.6.2 6.9.3 6.9.3s3.7 0 6.9-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.6.2-3.2v-1.2c.1-1.5-.1-3.1-.1-3.1zM9.8 14.5v-5l5.2 2.5-5.2 2.5z"/>
-                    </svg>
-                </div>
-                <div class="link-labels">
-                    <div class="link-main">YouTube</div>
-                    <div class="link-sub">먹방 · 브이로그</div>
-                </div>
-            </div>
-            <div class="link-arrow">›</div>
-        </a>
+        <!-- =========================
+             SOCIAL
+        ========================== -->
 
-        <!-- TikTok -->
-        <a class="link-item" href="https://www.tiktok.com/@king_juni" target="_blank" rel="noreferrer">
-            <div class="link-left">
-                <div class="icon-chip">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M17.2 6.2c-.8-.6-1.4-1.5-1.5-2.6h-2.4v12.3c0 1.3-1 2.4-2.3 2.4s-2.3-1.1-2.3-2.4 1-2.4 2.3-2.4c.3 0 .6.1.9.2V11c-.3-.1-.6-.1-.9-.1-2.6 0-4.7 2.2-4.7 4.9s2.1 4.9 4.7 4.9 4.7-2.2 4.7-4.9V8.6c1 .8 2.4 1.2 3.8 1.3V7.4c-.8 0-1.6-.2-2.3-.6z"/>
-                    </svg>
-                </div>
-                <div class="link-labels">
-                    <div class="link-main">TikTok</div>
-                    <div class="link-sub">먹방 · 라이브</div>
-                </div>
-            </div>
-            <div class="link-arrow">›</div>
-        </a>
-
-        <!-- Discord -->
-        <a class="link-item" href="https://discord.gg/6xsKgDhAX3" target="_blank" rel="noreferrer">
-            <div class="link-left">
-                <div class="icon-chip">
-                    <!-- Discord SVG -->
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.3 4.5a19.9 19.9 0 0 0-4.9-1.5l-.2.4a18 18 0 0 1 4.3 1.6 18.4 18.4 0 0 0-7.5-1.8 18.4 18.4 0 0 0-7.5 1.8 18 18 0 0 1 4.3-1.6l-.2-.4a19.9 19.9 0 0 0-4.9 1.5C1.5 8.1.8 11.6 1 15c2.2 3.2 5.4 4.1 5.4 4.1l1.2-1.6a11.4 11.4 0 0 1-3.4-1.7c.3.2.7.4 1.1.6a13.3 13.3 0 0 0 6.7 1.7 13.3 13.3 0 0 0 6.7-1.7c.4-.2.8-.4 1.1-.6a11.4 11.4 0 0 1-3.4 1.7l1.2 1.6s3.2-.9 5.4-4.1c.3-3.4-.5-6.9-2.7-10.5zM9.4 14.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.2 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/>
-                    </svg>
-                </div>
-                <div class="link-labels">
-                    <div class="link-main">Discord</div>
-                    <div class="link-sub">라이브 알림 · 커뮤니티</div>
-                </div>
-            </div>
-            <div class="link-arrow">›</div>
-        </a>
-    </nav>
-    <div class="section-title"><strong>LINKS</strong> · Products</div>
-    
-    <!-- Shop / Store -->
-    <a class="link-item" href="https://m.site.naver.com/2eTo7" target="_blank" rel="noreferrer">
-        <div class="link-left">
-            <div class="icon-chip">
-                <img src="img/dongwon.png" alt="shop" class="icon-image">
-            </div>
-            <div class="link-labels">
-                <div class="link-main">동원 케바삭 치킨</div>
-                <div class="link-sub">두 번 튀겨 육즙과 바삭함을 모두 살린 냉동치킨</div>
+        <div class="section-heading">
+            <span class="section-index">01</span>
+            <div class="section-line"></div>
+            <div class="section-title">
+                SOCIAL<span>.</span>
             </div>
         </div>
-        <div class="link-arrow">›</div>
-    </a>
-    <a class="link-item" href="https://www.coupang.com/vp/products/8829874239" target="_blank" rel="noreferrer">
-        <div class="link-left">
-            <div class="icon-chip">
-                <img src="img/lipsul2.jpg" alt="shop" class="icon-image">
-            </div>
-            <div class="link-labels">
-                <div class="link-main">입술 청양명란비밥장</div>
-                <div class="link-sub">쿠팡 링크</div>
-            </div>
-        </div>
-        <div class="link-arrow">›</div>
-    </a>
-    <a class="link-item" href="https://smartstore.naver.com/lipsul/products/13223605085" target="_blank" rel="noreferrer">
-        <div class="link-left">
-            <div class="icon-chip">
-                <img src="img/lipsul2.jpg" alt="shop" class="icon-image">
-            </div>
-            <div class="link-labels">
-                <div class="link-main">입술 청양명란비밥장</div>
-                <div class="link-sub">네이버 링크</div>
-            </div>
-        </div>
-        <div class="link-arrow">›</div>
-    </a>
-    <!--
-    <div class="disclosure">
-        제품 링크의 경우 쿠팡 파트너스 활동의 일환으로,<br>
-        이에 따른 일정액의 수수료를 제공받을 수 있습니다.
-    </div>
-    -->
 
-    <!-- ABOUT / CHANNEL SUMMARY -->
-    <div class="about-wrap">
-        <div class="about-pill">
-            <div class="about-label">MAIN CONTENT</div>
-            <div class="about-value">ASMR 먹방, 디저트 리뷰</div>
-        </div>
-        <div class="about-pill">
-            <div class="about-label">UPLOAD</div>
-            <div class="about-value">거의 매일</div>
-        </div>
-        <div class="about-pill">
-            <div class="about-label">NOTICE</div>
-            <div class="about-value">팔로우, 좋아요 및 댓글 감사드립니다!</div>
-        </div>
-    </div>
 
-    <!-- Ferrari 3D 섹션 -->
-    <section class="ferrari-wrap">
-        <div class="ferrari-header">
-            <span>I love sushi</span>
-            <span>yummy</span>
-        </div>
-        <canvas id="canvas"></canvas>
-    </section>
+        <nav class="social-grid">
 
-    <!-- COPYRIGHT FOOTER -->
-    <div class="footer">
-        © 2025 Jung Hyeokjun. All rights reserved.
-    </div>
+            <!-- Instagram -->
+            <a
+                class="link-item"
+                href="https://www.instagram.com/hyeok_junnn"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="link-left">
+
+                    <div class="icon-chip">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.8-8.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1z"/>
+                        </svg>
+                    </div>
+
+                    <div class="link-labels">
+                        <div class="link-main">Instagram</div>
+                        <div class="link-sub">
+                            먹방 · 일상 · 비하인드
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="link-arrow">↗</div>
+
+            </a>
+
+
+            <!-- YouTube -->
+            <a
+                class="link-item"
+                href="https://www.youtube.com/@Hyeok_junnn"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="link-left">
+
+                    <div class="icon-chip">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21.6 7.2s-.2-1.5-.8-2.1c-.7-.8-1.5-.8-1.9-.9C15.7 3.9 12 3.9 12 3.9h-.1s-3.7 0-6.9.3c-.4.1-1.2.1-1.9.9-.6.6-.8 2.1-.8 2.1S2 8.8 2 10.4v1.2c0 1.6.2 3.2.2 3.2s.2 1.5.8 2.1c.7.8 1.7.7 2.1.8 1.6.2 6.9.3 6.9.3s3.7 0 6.9-.3c.4-.1 1.2-.1 1.9-.9.6-.6.8-2.1.8-2.1s.2-1.6.2-3.2v-1.2c.1-1.5-.1-3.1-.1-3.1zM9.8 14.5v-5l5.2 2.5-5.2 2.5z"/>
+                        </svg>
+                    </div>
+
+                    <div class="link-labels">
+                        <div class="link-main">YouTube</div>
+                        <div class="link-sub">
+                            먹방 · 브이로그
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="link-arrow">↗</div>
+
+            </a>
+
+
+            <!-- TikTok -->
+            <a
+                class="link-item"
+                href="https://www.tiktok.com/@king_juni"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="link-left">
+
+                    <div class="icon-chip">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17.2 6.2c-.8-.6-1.4-1.5-1.5-2.6h-2.4v12.3c0 1.3-1 2.4-2.3 2.4s-2.3-1.1-2.3-2.4 1-2.4 2.3-2.4c.3 0 .6.1.9.2V11c-.3-.1-.6-.1-.9-.1-2.6 0-4.7 2.2-4.7 4.9s2.1 4.9 4.7 4.9 4.7-2.2 4.7-4.9V8.6c1 .8 2.4 1.2 3.8 1.3V7.4c-.8 0-1.6-.2-2.3-.6z"/>
+                        </svg>
+                    </div>
+
+                    <div class="link-labels">
+                        <div class="link-main">TikTok</div>
+                        <div class="link-sub">
+                            먹방 · 라이브
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="link-arrow">↗</div>
+
+            </a>
+
+
+            <!-- Discord -->
+            <a
+                class="link-item"
+                href="https://discord.gg/6xsKgDhAX3"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="link-left">
+
+                    <div class="icon-chip">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20.3 4.5a19.9 19.9 0 0 0-4.9-1.5l-.2.4a18 18 0 0 1 4.3 1.6 18.4 18.4 0 0 0-7.5-1.8 18.4 18.4 0 0 0-7.5 1.8 18 18 0 0 1 4.3-1.6l-.2-.4a19.9 19.9 0 0 0-4.9 1.5C1.5 8.1.8 11.6 1 15c2.2 3.2 5.4 4.1 5.4 4.1l1.2-1.6a11.4 11.4 0 0 1-3.4-1.7c.3.2.7.4 1.1.6a13.3 13.3 0 0 0 6.7 1.7 13.3 13.3 0 0 0 6.7-1.7c.4-.2.8-.4 1.1-.6a11.4 11.4 0 0 1-3.4 1.7l1.2 1.6s3.2-.9 5.4-4.1c.3-3.4-.5-6.9-2.7-10.5zM9.4 14.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.2 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/>
+                        </svg>
+                    </div>
+
+                    <div class="link-labels">
+                        <div class="link-main">Discord</div>
+                        <div class="link-sub">
+                            라이브 알림 · 커뮤니티
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="link-arrow">↗</div>
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- =========================
+             PRODUCT
+        ========================== -->
+
+        <div class="section-heading">
+            <span class="section-index">02</span>
+            <div class="section-line"></div>
+            <div class="section-title">
+                PRODUCT<span>.</span>
+            </div>
+        </div>
+
+
+        <div class="products">
+
+            <!-- Product 01 -->
+            <a
+                class="product-card"
+                href="https://m.site.naver.com/2eTo7"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="product-image-wrap">
+
+                    <span class="product-number">
+                        01
+                    </span>
+
+                    <img
+                        src="img/dongwon.png"
+                        class="product-image"
+                        alt="동원 케바삭 치킨"
+                    >
+
+                </div>
+
+                <div>
+
+                    <div class="product-kicker">
+                        AD
+                    </div>
+
+                    <div class="product-name">
+                        동원 케바삭 치킨
+                    </div>
+
+                    <div class="product-description">
+                        두 번 튀겨 육즙과 바삭함을 모두 살린 냉동치킨
+                    </div>
+
+                </div>
+
+                <div class="product-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- Product 02 -->
+            <a
+                class="product-card"
+                href="https://www.coupang.com/vp/products/8829874239"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="product-image-wrap">
+
+                    <span class="product-number">
+                        02
+                    </span>
+
+                    <img
+                        src="img/lipsul2.jpg"
+                        class="product-image"
+                        alt="입술 청양명란비밥장"
+                    >
+
+                </div>
+
+                <div>
+
+                    <div class="product-kicker">
+                        COUPANG
+                    </div>
+
+                    <div class="product-name">
+                        입술 청양명란비밥장
+                    </div>
+
+                    <div class="product-description">
+                        쿠팡에서 바로 보기
+                    </div>
+
+                </div>
+
+                <div class="product-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+
+            <!-- Product 03 -->
+            <a
+                class="product-card"
+                href="https://smartstore.naver.com/lipsul/products/13223605085"
+                target="_blank"
+                rel="noreferrer"
+            >
+
+                <div class="product-image-wrap">
+
+                    <span class="product-number">
+                        03
+                    </span>
+
+                    <img
+                        src="img/lipsul2.jpg"
+                        class="product-image"
+                        alt="입술 청양명란비밥장"
+                    >
+
+                </div>
+
+                <div>
+
+                    <div class="product-kicker">
+                        NAVER STORE
+                    </div>
+
+                    <div class="product-name">
+                        입술 청양명란비밥장
+                    </div>
+
+                    <div class="product-description">
+                        네이버 스마트스토어에서 보기
+                    </div>
+
+                </div>
+
+                <div class="product-arrow">
+                    ↗
+                </div>
+
+            </a>
+
+        </div>
+
+        <!---
+        <div class="disclosure">
+            제품 링크의 경우 쿠팡 파트너스 활동의 일환으로,
+            이에 따른 일정액의 수수료를 제공받을 수 있습니다.
+        </div>
+        -->
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <div class="section-heading">
+            <span class="section-index">03</span>
+            <div class="section-line"></div>
+            <div class="section-title">
+                INFO<span>.</span>
+            </div>
+        </div>
+
+
+        <div class="about-wrap">
+
+            <div class="about-pill">
+                <div class="about-label">
+                    MAIN CONTENT
+                </div>
+
+                <div class="about-value">
+                    다양한 포맷의<br>
+                    기획 먹방
+                </div>
+            </div>
+
+
+            <div class="about-pill">
+                <div class="about-label">
+                    UPLOAD
+                </div>
+
+                <div class="about-value">
+                    거의 매일
+                </div>
+            </div>
+
+
+            <div class="about-pill">
+                <div class="about-label">
+                    NOTICE
+                </div>
+
+                <div class="about-value">
+                    팔로우 · 좋아요 · 댓글<br>
+                    감사합니다!
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             3D SUSHI
+        ========================== -->
+
+        <div class="section-heading">
+            <span class="section-index">04</span>
+            <div class="section-line"></div>
+            <div class="section-title">
+                SUSHI<span>.</span>
+            </div>
+        </div>
+
+
+        <section class="object-section">
+
+            <div class="object-header">
+                <span>I LOVE SUSHI</span>
+                <span>YUMMY_3D</span>
+            </div>
+
+            <canvas id="canvas"></canvas>
+
+            <div class="object-bottom">
+                <span>
+                    OBJECT / TORO SUSHI
+                </span>
+
+                <span>
+                    <strong>EAT FIRST.</strong>
+                    THINK LATER.
+                </span>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <div>
+                © 2026 Jung Hyeokjun.
+                All rights reserved.
+            </div>
+
+            <div class="footer-mark">
+                JUNI™ / MUKBANG ARCHIVE
+            </div>
+
+        </footer>
+
+    </main>
+
 </div>
 
-<!-- three.js -->
+
+
+<!-- THREE JS -->
 <script type="importmap">
 {
-    "imports": {
-        "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
-        "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+    "imports":{
+        "three":"https://unpkg.com/three@0.141.0/build/three.module.js",
+        "GLTFLoader":"https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
     }
 }
 </script>
 
+
 <script type="module">
+
     import * as THREE from 'three';
-    import { GLTFLoader } from 'GLTFLoader';
+    import {GLTFLoader} from 'GLTFLoader';
 
-    const canvas = document.getElementById('canvas');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-    renderer.outputEncoding = THREE.sRGBEncoding;
 
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color('black');
+    const canvas =
+        document.getElementById('canvas');
 
-    const camera = new THREE.PerspectiveCamera(45, 16 / 9, 0.1, 2000);
-    camera.position.set(0, 60, 320);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 2);
-    dirLight.position.set(50, 120, 150);
-    scene.add(dirLight);
+    const renderer =
+        new THREE.WebGLRenderer({
+            canvas,
+            antialias:true,
+            alpha:false
+        });
 
-    const ambient = new THREE.AmbientLight(0xffffff, 0.4);
-    scene.add(ambient);
 
-    let ferrari = null;
+    renderer.outputEncoding =
+        THREE.sRGBEncoding;
 
-    const loader = new GLTFLoader();
-    loader.load(
-        'toro_sushi/scene.gltf',
-        (gltf) => {
-            ferrari = gltf.scene;
-            scene.add(ferrari);
-
-            const box = new THREE.Box3().setFromObject(ferrari);
-            const size   = box.getSize(new THREE.Vector3()).length();
-            const center = box.getCenter(new THREE.Vector3());
-
-            ferrari.position.sub(center);
-
-            const fitHeightDistance = size / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
-            const fitWidthDistance  = fitHeightDistance / camera.aspect;
-            const framingFactor = 0.7;
-            const distance = Math.max(fitHeightDistance, fitWidthDistance) * framingFactor;
-
-            camera.position.set(0, distance * 0.25, distance);
-            camera.lookAt(0, 0, 0);
-            camera.updateProjectionMatrix();
-        },
-        undefined,
-        (error) => console.error('Ferrari load error ❌', error)
+    renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio,2)
     );
 
-    function resizeRendererToDisplaySize() {
-        const width  = canvas.clientWidth;
-        const height = width * 9 / 16;
-        if (canvas.width !== width || canvas.height !== height) {
-            renderer.setSize(width, height, false);
-            camera.aspect = width / height;
+
+    const scene =
+        new THREE.Scene();
+
+
+    scene.background =
+        new THREE.Color('#000000');
+
+
+    const camera =
+        new THREE.PerspectiveCamera(
+            45,
+            16 / 9,
+            .1,
+            2000
+        );
+
+
+    /* LIGHT */
+
+    const keyLight =
+        new THREE.DirectionalLight(
+            0xffffff,
+            2.4
+        );
+
+    keyLight.position.set(
+        70,
+        120,
+        150
+    );
+
+    scene.add(keyLight);
+
+
+    const rimLight =
+        new THREE.DirectionalLight(
+            0xff2bd6,
+            1.4
+        );
+
+    rimLight.position.set(
+        -100,
+        40,
+        -50
+    );
+
+    scene.add(rimLight);
+
+
+    const acidLight =
+        new THREE.DirectionalLight(
+            0xdfff00,
+            .8
+        );
+
+    acidLight.position.set(
+        80,
+        -20,
+        20
+    );
+
+    scene.add(acidLight);
+
+
+    const ambient =
+        new THREE.AmbientLight(
+            0xffffff,
+            .45
+        );
+
+    scene.add(ambient);
+
+
+
+    /* MODEL */
+
+    let sushi = null;
+
+
+    const loader =
+        new GLTFLoader();
+
+
+    loader.load(
+
+        'toro_sushi/scene.gltf',
+
+        (gltf)=>{
+
+            sushi = gltf.scene;
+
+            scene.add(sushi);
+
+
+            const box =
+                new THREE.Box3()
+                .setFromObject(sushi);
+
+
+            const size =
+                box
+                .getSize(
+                    new THREE.Vector3()
+                )
+                .length();
+
+
+            const center =
+                box
+                .getCenter(
+                    new THREE.Vector3()
+                );
+
+
+            sushi.position.sub(center);
+
+
+            const fitHeightDistance =
+                size /
+                (
+                    2 *
+                    Math.tan(
+                        THREE.MathUtils.degToRad(
+                            camera.fov / 2
+                        )
+                    )
+                );
+
+
+            const fitWidthDistance =
+                fitHeightDistance /
+                camera.aspect;
+
+
+            const framingFactor =
+                .68;
+
+
+            const distance =
+                Math.max(
+                    fitHeightDistance,
+                    fitWidthDistance
+                )
+                *
+                framingFactor;
+
+
+            camera.position.set(
+                0,
+                distance * .20,
+                distance
+            );
+
+
+            camera.lookAt(
+                0,
+                0,
+                0
+            );
+
+
             camera.updateProjectionMatrix();
+
+        },
+
+        undefined,
+
+        (error)=>{
+            console.error(
+                'Sushi model load error:',
+                error
+            );
         }
+
+    );
+
+
+
+    /* RESIZE */
+
+    function resizeRenderer(){
+
+        const width =
+            canvas.clientWidth;
+
+        const height =
+            width * 9 / 16;
+
+
+        if(
+            canvas.width !== width ||
+            canvas.height !== height
+        ){
+
+            renderer.setSize(
+                width,
+                height,
+                false
+            );
+
+
+            camera.aspect =
+                width / height;
+
+
+            camera.updateProjectionMatrix();
+
+        }
+
     }
 
-    function animate() {
-        requestAnimationFrame(animate);
-        resizeRendererToDisplaySize();
-        if (ferrari) {
-            ferrari.rotation.y += 0.005;
+
+
+    /* ANIMATE */
+
+    function animate(){
+
+        requestAnimationFrame(
+            animate
+        );
+
+
+        resizeRenderer();
+
+
+        if(sushi){
+
+            sushi.rotation.y +=
+                .004;
+
+            sushi.rotation.z =
+                Math.sin(
+                    performance.now() *
+                    .00035
+                )
+                *
+                .025;
+
         }
-        renderer.render(scene, camera);
+
+
+        renderer.render(
+            scene,
+            camera
+        );
+
     }
+
 
     animate();
+
 </script>
 
 </body>
